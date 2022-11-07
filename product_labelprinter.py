@@ -82,15 +82,15 @@ if __name__ == '__main__':
                         f"-D  serial={serial}  "\
                         f"-D  sap={itemnumber}  "\
                         f"-D  type={typenumber}  "\
-                        f"-o  /home/{user}/{serial}.pdf".split("  ")
+                        f"-o  /home/{user}/labelfiles/{serial}.pdf".split("  ")
             else:
                 cmd = "glabels-batch-qt  "\
                     f"/mnt/fs/Icomera/Line/Supply Chain/Production/Glabels/Templates/{template}.glabels  "\
                     f"-D  serial={serial}  "\
                     f"-D  sap={itemnumber}  "\
                     f"-D  type={typenumber}  "\
-                    f"-o  /home/{user}/{serial}.pdf".split("  ")
-            commands.append(f"-c /home/{user}/{serial}.pdf")
+                    f"-o  /home/{user}/labelfiles/{serial}.pdf".split("  ")
+            commands.append(f"-c /home/{user}/labelfiles/{serial}.pdf")
             subprocess.call(cmd)
             serial = serial+1
         files_strings = " ".join(commands)
