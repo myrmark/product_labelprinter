@@ -15,7 +15,12 @@ printer='TTP-644MT'
 packagingprinter='Zebra-ZT230'
 user = os.getlogin()
 
-#Check if printers are installed on the system
+try:
+    os.listdir(f"/home/{user}/labelfiles")
+except Exception:
+    print("labelfiles folder was not found. Creating folder")
+    os.mkdir(f"/home/{user}/labelfiles")
+
 try:
     ps = subprocess.Popen('lpstat -p -d', stdout=subprocess.PIPE, shell=True)
     printer_check = subprocess.check_output(('grep', f'{printer}'), stdin=ps.stdout)
