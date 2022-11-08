@@ -26,7 +26,7 @@ except Exception:
 
     
 try:
-    ps = subprocess.Popen('lpinfo -m', stdout=subprocess.PIPE, shell=True)
+    ps = subprocess.Popen('sudo lpinfo -m', stdout=subprocess.PIPE, shell=True)
     drivers_check = subprocess.check_output(('grep', 'TTP-644MT'), stdin=ps.stdout)
     ps.wait()
     drivers_check = drivers_check.decode().strip()
