@@ -47,7 +47,7 @@ try:
     printer_check = printer_check.decode().strip()
 except Exception:
     print(f"Printer TTP-644MT not installed. Installing..")
-    cmd = 'lpadmin -p TTP-644MT -E -m tscbarcode/TTP-644MT.ppd -v lpd://172.28.88.43/queue -o PageSize=Custom.60x30mm'.split()
+    cmd = 'sudo lpadmin -p TTP-644MT -E -m tscbarcode/TTP-644MT.ppd -v lpd://172.28.88.43/queue -o PageSize=Custom.60x30mm'.split()
     subprocess.run(cmd)
 
 
@@ -58,7 +58,7 @@ try:
     printer_check = printer_check.decode().strip()
 except Exception:
     print(f"Printer ME340_lager not installed. Installing..")
-    cmd = 'lpadmin -p ME340_lager -E -m tscbarcode/ME340.ppd -v lpd://172.28.88.46/queue -o PageSize=Custom.60x30mm'.split()
+    cmd = 'sudo lpadmin -p ME340_lager -E -m tscbarcode/ME340.ppd -v lpd://172.28.88.46/queue -o PageSize=Custom.60x30mm'.split()
     subprocess.run(cmd)
 
 
@@ -69,7 +69,7 @@ try:
     printer_check = printer_check.decode().strip()
 except Exception:
     print(f"Printer ME340_production not installed. Installing..")
-    cmd = 'lpadmin -p ME340_production -E -m tscbarcode/ME340.ppd -v lpd://172.28.88.60/queue -o PageSize=Custom.60x30mm'.split()
+    cmd = 'sudo lpadmin -p ME340_production -E -m tscbarcode/ME340.ppd -v lpd://172.28.88.60/queue -o PageSize=Custom.60x30mm'.split()
     subprocess.run(cmd)
 
 
@@ -80,7 +80,7 @@ try:
     printer_check = printer_check.decode().strip()
 except Exception:
     print(f"Printer Zebra_ZT230_production not installed. Installing..")
-    cmd = 'lpadmin -p Zebra_ZT230_production -E -m drv:///sample.drv/zebra.ppd -v socket://172.28.88.44:9100 -o PageSize=Custom.101x152mm'.split()
+    cmd = 'sudo lpadmin -p Zebra_ZT230_production -E -m drv:///sample.drv/zebra.ppd -v socket://172.28.88.44:9100 -o PageSize=Custom.101x152mm'.split()
     subprocess.run(cmd)
 
 
@@ -91,7 +91,7 @@ try:
     printer_check = printer_check.decode().strip()
 except Exception:
     print(f"Printer Zebra_ZT230_lager not installed. Installing..")
-    cmd = 'lpadmin -p Zebra_ZT230_lager -E -m drv:///sample.drv/zebra.ppd -v socket://172.28.88.45:9100 -o PageSize=Custom.101x152mm'.split()
+    cmd = 'sudo lpadmin -p Zebra_ZT230_lager -E -m drv:///sample.drv/zebra.ppd -v socket://172.28.88.45:9100 -o PageSize=Custom.101x152mm'.split()
     subprocess.run(cmd)
 
     
