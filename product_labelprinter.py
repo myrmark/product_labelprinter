@@ -1,10 +1,12 @@
 #Author Filip Malmberg
 
 import keyring
+import lzma
 import os
 import pymysql
 import subprocess
 import sys
+import tarfile
 
 from datetime import datetime
 from pick import pick
