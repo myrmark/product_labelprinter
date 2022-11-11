@@ -128,9 +128,9 @@ def getitemnumber():
 
 if __name__ == '__main__':
     while True:
-        title = 'Choose labeltype: '
-        options = ['Chassi 60x30mm', 'Packaging 101x152mm']
-        option, index = pick(options, title)
+        title = 'Choose label size: '
+        options = ['60x30mm', '100x20mm', '101x152mm']
+        labelsize, index = pick(options, title)
         itemnumber = getitemnumber()
         typenumber = sqlquery('type',itemnumber)
         template = sqlquery('template',itemnumber)
@@ -160,8 +160,5 @@ if __name__ == '__main__':
             subprocess.call(cmd)
             serial = serial+1
         files_strings = " ".join(commands)
-        if option == 'Packaging 101x152mm':
-            cmd = f"lp -n {amount} {files_strings} -d {packagingprinter}".split()
-        else:
-            cmd = f"lp -n {amount} {files_strings} -d {printer}".split()
+        cmd = f"lp -n {amount} {files_strings} -d {printer} -o media={labelsize}".split()
         subprocess.call(cmd)
