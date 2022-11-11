@@ -142,7 +142,7 @@ if __name__ == '__main__':
         amount = input("Enter amount of copies to print: ")
         commands = []
         for i in range(increments):
-            if option == '101x152mm':
+            if labelsize == '101x152mm':
                 cmd = "glabels-batch-qt  "\
                         f"/mnt/fs/Icomera/Line/Supply Chain/Production/Glabels/Templates/{template}p.glabels  "\
                         f"-D  serial={serial}  "\
