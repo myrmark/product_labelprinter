@@ -94,11 +94,6 @@ except Exception:
     cmd = 'sudo lpadmin -p Zebra_ZT230_lager -E -m drv:///sample.drv/zebra.ppd -v socket://172.28.88.45:9100 -o PageSize=Custom.101x152mm'.split()
     subprocess.run(cmd)
 
-    
-title = 'Select printer: '
-options = ['TTP-644MT', 'ME340_production', 'Zebra_ZT230_production', 'ME340_lager', 'Zebra_ZT230_lager']
-printer, index = pick(options, title)
-
 
 def sqlquery(column,itemnumber):
     db = pymysql.connect(host="172.28.88.47",user="simdbuploader",password=dbpw,database="simdb")
@@ -128,6 +123,9 @@ def getitemnumber():
 
 if __name__ == '__main__':
     while True:
+        title = 'Select printer: '
+        options = ['TTP-644MT', 'ME340_production', 'Zebra_ZT230_production', 'ME340_lager', 'Zebra_ZT230_lager']
+        printer, index = pick(options, title)
         title = 'Choose label size: '
         options = ['60x30mm', '100x20mm', '101x152mm']
         labelsize, index = pick(options, title)
