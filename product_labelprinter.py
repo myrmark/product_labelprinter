@@ -123,12 +123,6 @@ def getitemnumber():
 
 if __name__ == '__main__':
     while True:
-        ap01serials = {
-            "serial2": None,
-            "serial3": None,
-            "serial4": None,
-            "serial5": None,
-            }
         title = 'Select printer: '
         options = ['TTP-644MT', 'ME340_production', 'Zebra_ZT230_production', 'ME340_lager', 'Zebra_ZT230_lager']
         printer, index = pick(options, title)
@@ -142,34 +136,15 @@ if __name__ == '__main__':
             typenumber = ""
         if labelsize == '101x152mm':
             template = template+'p'
-        if template == 'AP01p':
-                number_of_serials = int(input('How many serial numbers should be on the AP01 packaging label?: '))
-                number_of_serials+=1
-                serial = int(input("Enter first serial: "))
-                for i, key in enumerate(ap01serials, start=1):
-                    try:
-                        s = int(input(f'Enter {key} (Press return if it should be empty): '))
-                        ap01serials.update({key: s})
-                    except Exception:
-                        pass
-        else:
-            serial = int(input("Enter first serial: "))
+        serial = int(input("Enter first serial: "))
         print(f"--- 2 increments means {serial} and {serial+1} will be printed ---")
         increments = int(input("How many increments?: "))
         amount = input("Enter amount of copies to print: ")
         commands = []
-        serial2 = ap01serials['serial2']
-        serial3 = ap01serials['serial3']
-        serial4 = ap01serials['serial4']
-        serial5 = ap01serials['serial5']
         for i in range(increments):
             cmd = "glabels-batch-qt  "\
                     f"/mnt/fs/Icomera/Line/Supply Chain/Production/Glabels/Templates/{template}.glabels  "\
                     f"-D  serial={serial}  "\
-                    f"-D  serial2={serial2}  "\
-                    f"-D  serial3={serial3}  "\
-                    f"-D  serial4={serial4}  "\
-                    f"-D  serial5={serial5}  "\
                     f"-D  sap={itemnumber}  "\
                     f"-D  type={typenumber}  "\
                     f"-o  /home/{user}/labelfiles/{serial}.pdf".split("  ")
