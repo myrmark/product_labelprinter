@@ -143,15 +143,15 @@ if __name__ == '__main__':
         if labelsize == '101x152mm':
             template = template+'p'
         if template == 'AP01p':
-	        number_of_serials = int(input('How many serial numbers should be on the AP01 packaging label?: '))
-	        number_of_serials+=1
-            	serial = int(input("Enter first serial: "))
-	        for i, key in enumerate(ap01serials, start=1):
-		        try:
-			        s = int(input(f'Enter {key} (Press return if it should be empty): '))
-			        ap01serials.update({key: s})
-		        except Exception:
-			        pass
+                number_of_serials = int(input('How many serial numbers should be on the AP01 packaging label?: '))
+                number_of_serials+=1
+                serial = int(input("Enter first serial: "))
+                for i, key in enumerate(ap01serials, start=1):
+                    try:
+                        s = int(input(f'Enter {key} (Press return if it should be empty): '))
+                        ap01serials.update({key: s})
+                    except Exception:
+                        pass
         else:
             serial = int(input("Enter first serial: "))
         print(f"--- 2 increments means {serial} and {serial+1} will be printed ---")
