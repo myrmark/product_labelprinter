@@ -162,10 +162,10 @@ if __name__ == '__main__':
             cmd = "glabels-batch-qt  "\
                     f"/mnt/fs/Icomera/Line/Supply Chain/Production/Glabels/Templates/{template}.glabels  "\
                     f"-D  serial={serial}  "\
-                    "-D  serial2=ap01serials['serial2']  "\
-                    "-D  serial3=ap01serials['serial3']  "\
-                    "-D  serial4=ap01serials['serial4']  "\
-                    "-D  serial5=ap01serials['serial5']  "\
+                    f"-D  serial2={ap01serials['serial2']}  "\
+                    f"-D  serial3={ap01serials['serial3']}  "\
+                    f"-D  serial4={ap01serials['serial4']}  "\
+                    f"-D  serial5={ap01serials['serial5']}  "\
                     f"-D  sap={itemnumber}  "\
                     f"-D  type={typenumber}  "\
                     f"-o  /home/{user}/labelfiles/{serial}.pdf".split("  ")
