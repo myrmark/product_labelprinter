@@ -158,14 +158,18 @@ if __name__ == '__main__':
         increments = int(input("How many increments?: "))
         amount = input("Enter amount of copies to print: ")
         commands = []
+        serial2 = ap01serials['serial2']
+        serial3 = ap01serials['serial3']
+        serial4 = ap01serials['serial4']
+        serial5 = ap01serials['serial5']
         for i in range(increments):
             cmd = "glabels-batch-qt  "\
                     f"/mnt/fs/Icomera/Line/Supply Chain/Production/Glabels/Templates/{template}.glabels  "\
                     f"-D  serial={serial}  "\
-                    "-D  serial2={serial2}  ".format_map(dic)\
-                    "-D  serial3={serial3}  ".format_map(dic)\
-                    "-D  serial4={serial4}  ".format_map(dic)\
-                    "-D  serial5={serial5}  ".format_map(dic)\
+                    f"-D  serial2={serial2}  "\
+                    f"-D  serial3={serial3}  "\
+                    f"-D  serial4={serial4}  "\
+                    f"-D  serial5={serial5}  "\
                     f"-D  sap={itemnumber}  "\
                     f"-D  type={typenumber}  "\
                     f"-o  /home/{user}/labelfiles/{serial}.pdf".split("  ")
